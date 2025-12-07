@@ -14,12 +14,13 @@
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
 
   <style>
-    /* --- BLUE THEME VARIABLES --- */
+    /* --- BLUE MATRIX THEME --- */
     :root {
-      --bg-color: #040b14;
-      --accent-color: #00F0FF; /* Cyan Blue */
-      --text-color: #fff;
-      --card-bg: #0a192f;
+      --bg-color: #000000;
+      --accent-color: #00F0FF; /* Electric Blue/Cyan */
+      --text-color: #ffffff;
+      --card-bg: rgba(10, 25, 47, 0.85); /* Dark Blue Transparent */
+      --nav-bg: rgba(0, 0, 0, 0.9);
     }
 
     body {
@@ -30,7 +31,7 @@
     }
 
     a { color: var(--accent-color); text-decoration: none; transition: 0.3s; }
-    a:hover { color: #fff; }
+    a:hover { color: #fff; text-shadow: 0 0 10px var(--accent-color); }
 
     /* --- MATRIX BACKGROUND --- */
     #matrix-canvas {
@@ -40,32 +41,58 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.9;
     }
 
-    /* --- HEADER / NAV --- */
+    /* --- HEADER / NAV (Top Bar Style) --- */
     #header {
       transition: all 0.5s;
       z-index: 997;
-      padding: 20px 0;
-      background: rgba(4, 11, 20, 0.9);
-      border-bottom: 2px solid var(--accent-color);
+      padding: 15px 0;
+      background: var(--nav-bg);
+      border-bottom: 1px solid #333;
     }
 
     #header h1 {
-      font-size: 28px;
+      font-size: 24px;
       margin: 0;
       padding: 0;
-      line-height: 1;
       font-weight: 700;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
     #header h1 a { color: #fff; }
 
-    .nav-menu { margin: 0; padding: 0; list-style: none; }
-    .nav-menu ul { display: flex; gap: 30px; list-style: none; margin-bottom: 0;}
-    .nav-menu a { color: #fff; font-weight: 600; font-size: 15px; }
-    .nav-menu a:hover { color: var(--accent-color); }
+    .navbar { padding: 0; }
+    .navbar ul { margin: 0; padding: 0; display: flex; list-style: none; align-items: center; }
+    .navbar li { position: relative; }
+    .navbar a, .navbar a:focus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 10px 30px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+    .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+      color: var(--accent-color);
+    }
+    
+    /* Mobile Nav Toggle */
+    .mobile-nav-toggle {
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: none;
+      line-height: 0;
+      transition: 0.5s;
+    }
+    @media (max-width: 991px) {
+      .mobile-nav-toggle { display: block; }
+      .navbar ul { display: none; }
+    }
 
     /* --- HERO SECTION --- */
     #hero {
@@ -81,11 +108,13 @@
       font-weight: 700;
       line-height: 56px;
       color: #fff;
+      text-transform: uppercase;
     }
     #hero h2 {
       color: #eee;
       margin-top: 20px;
       font-size: 24px;
+      font-family: "Raleway", sans-serif;
     }
     #hero h2 span {
       color: var(--accent-color);
@@ -93,92 +122,129 @@
       padding-bottom: 6px;
     }
     
-    .social-links { margin-top: 30px; }
+    .social-links { margin-top: 30px; display: flex; gap: 15px;}
     .social-links a {
-      font-size: 24px;
-      display: inline-block;
-      background: #333;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.1);
       color: #fff;
       line-height: 1;
-      padding: 10px;
-      margin-right: 10px;
       border-radius: 50%;
-      text-align: center;
-      width: 50px; 
-      height: 50px;
+      width: 45px; 
+      height: 45px;
       transition: 0.3s;
     }
-    .social-links a:hover { background: var(--accent-color); color: #000; }
+    .social-links a:hover { background: var(--accent-color); color: #000; box-shadow: 0 0 15px var(--accent-color); }
 
     /* --- SECTIONS GENERAL --- */
     section { padding: 60px 0; overflow: hidden; }
-    .section-title { padding-bottom: 30px; position: relative; }
+    .section-title { padding-bottom: 40px; }
     .section-title h2 {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      position: relative;
-      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0;
+      line-height: 1px;
+      margin: 0 0 5px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaaaaa;
+      font-family: "Poppins", sans-serif;
     }
     .section-title h2::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 50px;
-      height: 3px;
+      content: "";
+      width: 120px;
+      height: 1px;
+      display: inline-block;
       background: var(--accent-color);
-      bottom: 0;
-      left: 0;
+      margin: 4px 10px;
+    }
+    .section-title p {
+      margin: 0;
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
     }
 
     /* --- ABOUT --- */
+    .about-img {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
     .about .content h3 { font-weight: 700; font-size: 26px; color: var(--accent-color); }
-    .about img { border: 3px solid var(--accent-color); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+    .about .content ul { list-style: none; padding: 0; }
+    .about .content ul li { margin-bottom: 20px; display: flex; align-items: center; }
 
-    /* --- CARDS (Education, Experience, Projects) --- */
+    /* --- CARDS (Education, Experience) --- */
     .icon-box {
-      padding: 20px;
+      padding: 30px;
       position: relative;
       overflow: hidden;
       background: var(--card-bg);
-      box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.5);
       transition: all 0.3s ease-in-out;
       border-radius: 8px;
       z-index: 1;
-      margin-bottom: 20px;
-      border-left: 3px solid var(--accent-color);
       height: 100%;
+      border-top: 3px solid transparent;
     }
-    .icon-box:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+    .icon-box:hover { 
+        transform: translateY(-5px); 
+        border-top: 3px solid var(--accent-color);
+        box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
+    }
     .icon-box h4 { font-weight: 700; margin-bottom: 15px; font-size: 20px; color: #fff; }
-    .icon-box h5 { color: var(--accent-color); font-size: 16px; font-weight: 600; margin-bottom: 10px; }
-    .icon-box p { font-size: 14px; color: #ccc; margin-bottom: 0; }
-    .logo-img { max-height: 50px; margin-bottom: 15px; display: block; }
+    .icon-box h5 { color: var(--accent-color); font-size: 15px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;}
+    .icon-box p { font-size: 14px; color: #ccc; margin-bottom: 0; line-height: 1.6; }
     
-    /* --- PROJECT IMAGES --- */
+    .logo-img { 
+        max-height: 60px; 
+        margin-bottom: 20px; 
+        display: block; 
+        background: rgba(255,255,255,0.9);
+        padding: 5px;
+        border-radius: 4px;
+    }
+    
+    /* --- PROJECTS --- */
     .project-img {
         width: 100%;
         height: 200px;
         object-fit: cover;
         border-radius: 5px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         border: 1px solid #333;
     }
 
-    /* --- SKILLS & CERTIFICATIONS --- */
-    .cert-card { background: var(--card-bg); padding: 15px; border-radius: 5px; border-top: 2px solid var(--accent-color); height: 100%; }
-    .cert-card h4 { font-size: 16px; color: #fff; margin-bottom: 5px; }
-    .cert-card p { font-size: 13px; color: #aaa; }
+    /* --- CERTIFICATIONS --- */
+    .cert-card { 
+        background: var(--card-bg); 
+        padding: 20px; 
+        border-radius: 8px; 
+        border-left: 3px solid var(--accent-color); 
+        height: 100%;
+        transition: 0.3s;
+    }
+    .cert-card:hover { background: rgba(0, 240, 255, 0.1); }
+    .cert-card h4 { font-size: 18px; color: #fff; margin-bottom: 10px; font-weight: bold; }
+    .cert-card p { font-size: 14px; color: #aaa; margin: 0; }
 
     /* --- CV SECTION --- */
     .cv-box {
         background: var(--card-bg);
         padding: 40px;
         text-align: center;
-        border: 2px solid var(--accent-color);
+        border: 1px solid var(--accent-color);
         border-radius: 10px;
+        transition: 0.3s;
     }
+    .cv-box:hover { box-shadow: 0 0 20px var(--accent-color); }
 
   </style>
 </head>
@@ -191,16 +257,18 @@
     <div class="container d-flex align-items-center justify-content-between">
       <h1><a href="index.html">POOVARASAN M</a></h1>
       
-      <nav id="navbar" class="nav-menu navbar">
+      <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#cv">CV</a></li>
+          <li><a class="nav-link active" href="#hero">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#education">Education</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li><a class="nav-link" href="#cv">CV</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
     </div>
   </header>
@@ -211,10 +279,10 @@
       <h2>I am a <span class="typing"></span></h2>
 
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUM-OZ0-PMTcyN-3t30YQv14VvBq0Hgmo7UmyeX0GiP3AqdixTmUkLEiBYN8_aem_Y-y23sCVybO5Aw6zKmADoA" target="_blank"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/poovarasanm3004-lgtm" target="_blank"><i class="bx bxl-github"></i></a>
-        <a href="mailto:Poovarasannpty@gmail.com"><i class="bx bx-envelope"></i></a>
-        <a href="https://wa.me/918098776363" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUM-OZ0-PMTcyN-3t30YQv14VvBq0Hgmo7UmyeX0GiP3AqdixTmUkLEiBYN8_aem_Y-y23sCVybO5Aw6zKmADoA" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/poovarasanm3004-lgtm" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:Poovarasannpty@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/918098776363" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </section>
@@ -222,23 +290,26 @@
   <section id="about" class="about">
     <div class="container">
       <div class="section-title">
-        <h2>About Me</h2>
+        <h2>About</h2>
+        <p>About Me</p>
       </div>
       <div class="row">
         <div class="col-lg-4">
-          <img src="my_photo.jpg" class="img-fluid rounded" alt="Poovarasan M" style="width:100%; max-width: 350px;">
+          <div class="about-img">
+              <img src="my_photo.jpg" class="img-fluid" alt="Poovarasan M">
+          </div>
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content">
           <h3>Hi there, Myself POOVARASAN M</h3>
           <br>
-          <p>
-            -> I’m a graduate of <strong>Anna University-Trichy</strong> with a Bachelor's degree in "Computer Science and Engineering". 
+          <p class="fst-italic">
+            -> I’m a graduate of <strong>Anna University-Trichy</strong> with a Bachelor's degree in "Computer Science and Engineering".
           </p>
           <p>
             -> My academic journey seamlessly integrates these fields, providing me with a strong foundation in both theoretical and practical knowledge in areas that align with my personal interests. This combination of skills allows me to innovate at the crossroads of hardware and software, bridging intricate technological gaps.
           </p>
           <p>
-            -> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>. I am always active on the internet, which helps me stay updated about new technologies. So far, using my knowledge, I have completed many projects including both front-end and back-end. 
+            -> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>. I am always active on the internet, which helps me stay updated about new technologies. So far, using my knowledge, I have completed many projects including both front-end and back-end.
           </p>
         </div>
       </div>
@@ -249,15 +320,16 @@
     <div class="container">
       <div class="section-title">
         <h2>Education</h2>
+        <p>Education</p>
       </div>
-      <div class="row">
+      <div class="row gy-4">
         
         <div class="col-lg-12">
           <div class="icon-box">
             <img src="anna-university-logo-png_seeklogo-327691.png" class="logo-img" alt="Anna University">
             <h4>Anna University - Trichy Campus</h4>
             <h5>B.E - COMPUTER SCIENCE AND ENGINEERING</h5>
-            <p><strong>Batch:</strong> 2017 - 2021 | <strong>Score:</strong> 73% </p>
+            <p><strong>Batch:</strong> 2017 - 2021 | <strong>Score:</strong> 73%</p>
           </div>
         </div>
 
@@ -266,7 +338,7 @@
             <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>HSC (12th Grade)</h5>
-            <p>Reddipatti, Namakkal </p>
+            <p>Reddipatti, Namakkal</p>
             <p><strong>Score:</strong> 83%</p>
           </div>
         </div>
@@ -276,7 +348,7 @@
             <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>SSLC (10th Grade)</h5>
-            <p>Reddipatti, Namakkal </p>
+            <p>Reddipatti, Namakkal</p>
             <p><strong>Batch:</strong> 2014 - 2015 | <strong>Score:</strong> 88%</p>
           </div>
         </div>
@@ -289,8 +361,9 @@
     <div class="container">
       <div class="section-title">
         <h2>Experience</h2>
+        <p>Work Experience</p>
       </div>
-      <div class="row">
+      <div class="row gy-4">
         
         <div class="col-lg-12">
           <div class="icon-box">
@@ -299,7 +372,7 @@
             <h5>Software Developer (4 Years)</h5>
             <p><em>Jan 2022 - Present</em></p>
             <p class="mt-2">
-              Working in the <strong>Electronic Payments</strong> sector. Over the last 4 years, I have gained extensive experience in Java, HTML, CSS, project development, and priority management. 
+              Working in the <strong>Electronic Payments</strong> sector. I joined as a fresher in Jan 2022 and now have 4 years of experience. I have gained extensive knowledge in <strong>Java, HTML, CSS, SQL</strong>, project development, and priority management.
             </p>
           </div>
         </div>
@@ -320,15 +393,18 @@
     <div class="container">
       <div class="section-title">
         <h2>Projects</h2>
+        <p>My Projects</p>
       </div>
-      <div class="row">
+      <div class="row gy-4">
         
         <div class="col-md-6">
           <div class="icon-box">
             <img src="axerve-s-p-a-logo-vector.png" class="logo-img" alt="Axerve">
             <h4>AEPaymentFacilitator</h4>
             <p>
-              A Batch application designed to automate commission calculations for <strong>Axerve</strong> users (POS and Ecommerce). The system processes over 4 lakh users, calculates monthly/daily commissions, debits amounts from accounts, and manages customer/merchant disputes. 
+              A Batch application designed to get commission from <strong>Axerve</strong> users. Axerve is a POS and ECOMMERCE application with 4 lakh+ users.
+              <br><br>
+              This application calculates monthly and daily commissions for all users, debits the calculated amount from their accounts, and manages customer/merchant dispute issues.
             </p>
           </div>
         </div>
@@ -338,7 +414,9 @@
             <img src="hypecard.jpg" class="project-img" alt="Hype Card">
             <h4>Hype Commission Batches</h4>
             <p>
-              Developed for <strong>Hype</strong> (Italy's leading neobank). We handle monthly/yearly commission calculations and accounting services for various card products including HYPE PLUS, PREMIUM, BUSINESS, NEXT, and BASE. Includes logic for account closures and variable commission percentages. 
+              Hype is Italy's leading neobank specializing in mobile money management.
+              <br><br>
+              We perform their customer card's monthly/yearly commission calculations and accounting services. We also handle account closures. The system supports various card products like <strong>HYPE PLUS, PREMIUM, BUSINESS, NEXT, BASE</strong>, each with different commission percentages.
             </p>
           </div>
         </div>
@@ -351,34 +429,35 @@
     <div class="container">
       <div class="section-title">
         <h2>Certifications</h2>
+        <p>Certifications</p>
       </div>
       <div class="row gy-4">
         
         <div class="col-md-6">
           <div class="cert-card">
             <h4>GitHub Copilot</h4>
-            <p>Learned prompt engineering, AI-assisted coding workflows, and best practices for conversational prompts.</p>
+            <p>Learned prompt engineering techniques, AI-assisted coding workflows, and best practices for utilizing conversational prompts and integrating Copilot into development environments.</p>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="cert-card">
             <h4>GitHub Copilot - Agent Mode</h4>
-            <p>Hands-on experience generating, refactoring, and debugging code across multiple languages using Agent Mode.</p>
+            <p>Hands-on experience with GitHub Copilot's Agent Mode to generate, refactor, and debug code across multiple languages and frameworks. Demonstrated proficiency in integrating AI workflows into real-world tasks.</p>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="cert-card">
             <h4>Angular Advanced Level</h4>
-            <p>Advanced training covering component architecture, reactive forms, state management, and optimization.</p>
+            <p>Completed advanced training in Angular, covering component architecture, reactive forms, state management, and performance optimization techniques.</p>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="cert-card">
             <h4>Fullstack Course (Spring Boot + React)</h4>
-            <p>Udemy course covering Spring Boot annotations, Java, SQL, Database management, and React.</p>
+            <p>Udemy Course: Learned technical knowledge like Spring Boot annotations, Java, SQL, Database management, and React.</p>
           </div>
         </div>
 
@@ -389,7 +468,8 @@
   <section id="cv" class="services">
     <div class="container">
       <div class="section-title">
-        <h2>CV / Resume</h2>
+        <h2>Resume</h2>
+        <p>Download CV</p>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-4">
@@ -398,6 +478,35 @@
              <h4>My Resume</h4>
              <p>Click below to download my latest resume.</p>
              <a href="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/Poovarasan-M-CV.pdf" class="btn btn-outline-info" style="color:white; border-color:var(--accent-color);">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Me</p>
+      </div>
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <div class="icon-box">
+            <i class="fas fa-share-alt" style="font-size: 30px; color: var(--accent-color); margin-bottom: 15px;"></i>
+            <h3>Social Profiles</h3>
+            <div class="social-links" style="justify-content: center;">
+                <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUM-OZ0-PMTcyN-3t30YQv14VvBq0Hgmo7UmyeX0GiP3AqdixTmUkLEiBYN8_aem_Y-y23sCVybO5Aw6zKmADoA" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/poovarasanm3004-lgtm" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:Poovarasannpty@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="icon-box">
+            <i class="fas fa-envelope-open" style="font-size: 30px; color: var(--accent-color); margin-bottom: 15px;"></i>
+            <h3>Email Me</h3>
+            <p><a href="mailto:Poovarasannpty@gmail.com">Poovarasannpty@gmail.com</a></p>
           </div>
         </div>
       </div>
@@ -436,7 +545,7 @@
     for (let i = 0; i < columns; i++) { drops[i] = 1; }
 
     function drawMatrix() {
-        ctx.fillStyle = 'rgba(4, 11, 20, 0.05)'; // Fade effect matching background
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade effect
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = '#00F0FF'; // CYAN BLUE TEXT
