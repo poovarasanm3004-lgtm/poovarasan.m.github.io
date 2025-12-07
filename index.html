@@ -21,6 +21,7 @@
       --text-color: #ffffff;
       --card-bg: rgba(10, 25, 47, 0.85); /* Dark Blue Transparent */
       --nav-bg: rgba(0, 0, 0, 0.9);
+      --skill-card-bg: #0d1b2a;
     }
 
     body {
@@ -43,7 +44,7 @@
       z-index: -1;
     }
 
-    /* --- HEADER / NAV (Top Bar Style) --- */
+    /* --- HEADER / NAV --- */
     #header {
       transition: all 0.5s;
       z-index: 997;
@@ -80,7 +81,6 @@
       color: var(--accent-color);
     }
     
-    /* Mobile Nav Toggle */
     .mobile-nav-toggle {
       color: #fff;
       font-size: 28px;
@@ -162,7 +162,6 @@
     }
     .section-title p {
       margin: 0;
-      margin: 0;
       font-size: 36px;
       font-weight: 700;
       text-transform: uppercase;
@@ -178,10 +177,8 @@
         box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
     }
     .about .content h3 { font-weight: 700; font-size: 26px; color: var(--accent-color); }
-    .about .content ul { list-style: none; padding: 0; }
-    .about .content ul li { margin-bottom: 20px; display: flex; align-items: center; }
 
-    /* --- CARDS (Education, Experience) --- */
+    /* --- CARDS --- */
     .icon-box {
       padding: 30px;
       position: relative;
@@ -212,7 +209,53 @@
         border-radius: 4px;
     }
     
-    /* --- PROJECTS --- */
+    /* --- SKILLS SECTION (NEW DESIGN) --- */
+    .skill-category {
+        margin-bottom: 30px;
+    }
+    .skill-category h4 {
+        color: var(--accent-color);
+        font-size: 22px;
+        margin-bottom: 20px;
+        border-left: 5px solid var(--accent-color);
+        padding-left: 15px;
+        background: rgba(0, 240, 255, 0.1);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 0 10px 10px 0;
+    }
+    .skill-item {
+        background: var(--skill-card-bg);
+        border: 1px solid #2a3b4c;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        transition: 0.3s;
+        margin-bottom: 15px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .skill-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-color);
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+    .skill-item img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    .skill-item span {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    /* --- PROJECT IMAGES --- */
     .project-img {
         width: 100%;
         height: 200px;
@@ -222,33 +265,7 @@
         border: 1px solid #333;
     }
 
-    /* --- SKILLS GRID --- */
-    .skill-box {
-        background: var(--card-bg);
-        padding: 20px;
-        text-align: center;
-        border-radius: 8px;
-        transition: 0.3s;
-        border: 1px solid #333;
-    }
-    .skill-box:hover {
-        border-color: var(--accent-color);
-        box-shadow: 0 0 10px var(--accent-color);
-        transform: translateY(-5px);
-    }
-    .skill-box i {
-        font-size: 40px;
-        color: var(--accent-color);
-        margin-bottom: 10px;
-    }
-    .skill-box h4 {
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        margin: 0;
-    }
-
-    /* --- CERTIFICATIONS --- */
+    /* --- CERTIFICATIONS & CV --- */
     .cert-card { 
         background: var(--card-bg); 
         padding: 20px; 
@@ -258,10 +275,6 @@
         transition: 0.3s;
     }
     .cert-card:hover { background: rgba(0, 240, 255, 0.1); }
-    .cert-card h4 { font-size: 18px; color: #fff; margin-bottom: 10px; font-weight: bold; }
-    .cert-card p { font-size: 14px; color: #aaa; margin: 0; }
-
-    /* --- CV SECTION --- */
     .cv-box {
         background: var(--card-bg);
         padding: 40px;
@@ -306,7 +319,7 @@
       <h2>I am a <span class="typing"></span></h2>
 
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUM-OZ0-PMTcyN-3t30YQv14VvBq0Hgmo7UmyeX0GiP3AqdixTmUkLEiBYN8_aem_Y-y23sCVybO5Aw6zKmADoA" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/poovarasanm3004-lgtm" target="_blank"><i class="fab fa-github"></i></a>
         <a href="mailto:Poovarasannpty@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://wa.me/918098776363" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -323,7 +336,7 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="about-img">
-              <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/my_photo.jpg" class="img-fluid" alt="Poovarasan M">
+              <img src="my_photo.jpg" class="img-fluid" alt="Poovarasan M">
           </div>
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content">
@@ -333,10 +346,10 @@
             -> I’m a graduate of <strong>Anna University-Trichy</strong> with a Bachelor's degree in "Computer Science and Engineering".
           </p>
           <p>
-            -> My academic journey seamlessly integrates these fields, providing me with a strong foundation in both theoretical and practical knowledge in areas that align with my personal interests. This combination of skills allows me to innovate at the crossroads of hardware and software, bridging intricate technological gaps.
+            -> My academic journey seamlessly integrates these fields, providing me with a strong foundation in both theoretical and practical knowledge.
           </p>
           <p>
-            -> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>. I am always active on the internet, which helps me stay updated about new technologies. So far, using my knowledge, I have completed many projects including both front-end and back-end.
+            -> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>.
           </p>
         </div>
       </div>
@@ -350,36 +363,30 @@
         <p>Education</p>
       </div>
       <div class="row gy-4">
-        
         <div class="col-lg-12">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/anna-university-logo-png_seeklogo-327691.png" class="logo-img" alt="Anna University">
+            <img src="anna-university-logo-png_seeklogo-327691.png" class="logo-img" alt="Anna University">
             <h4>Anna University - Trichy Campus</h4>
             <h5>B.E - COMPUTER SCIENCE AND ENGINEERING</h5>
             <p><strong>Batch:</strong> 2017 - 2021 | <strong>Score:</strong> 73%</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
+            <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>HSC (12th Grade)</h5>
-            <p>Reddipatti, Namakkal</p>
             <p><strong>Score:</strong> 83%</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
+            <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>SSLC (10th Grade)</h5>
-            <p>Reddipatti, Namakkal</p>
-            <p><strong>Batch:</strong> 2014 - 2015 | <strong>Score:</strong> 88%</p>
+            <p><strong>Score:</strong> 88%</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -391,19 +398,15 @@
         <p>Work Experience</p>
       </div>
       <div class="row gy-4">
-        
         <div class="col-lg-12">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/unknown_5053Centrico.png" class="logo-img" alt="Centrico Logo">
+            <img src="unknown_5053Centrico.png" class="logo-img" alt="Centrico Logo">
             <h4>Centrico India Pvt Ltd</h4>
             <h5>Software Developer (4 Years)</h5>
             <p><em>Jan 2022 - Present</em></p>
-            <p class="mt-2">
-              Working in the <strong>Electronic Payments</strong> sector. I joined as a fresher in Jan 2022 and now have 4 years of experience. I have gained extensive knowledge in <strong>Java, HTML, CSS, SQL</strong>, project development, and priority management.
-            </p>
+            <p>Working in the Electronic Payments sector. Experienced in Java, HTML, CSS, SQL, and project management.</p>
           </div>
         </div>
-
         <div class="col-lg-12">
           <div class="icon-box">
             <h4><i class="fas fa-laptop-code" style="color:var(--accent-color);"></i> QSpiders - Chennai Vadapalani</h4>
@@ -411,7 +414,6 @@
             <p>4 Months experience in Core Java, HTML, CSS, JavaScript, and SQL.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -423,31 +425,20 @@
         <p>My Projects</p>
       </div>
       <div class="row gy-4">
-        
         <div class="col-md-6">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/axerve-s-p-a-logo-vector.png" class="logo-img" alt="Axerve">
+            <img src="axerve-s-p-a-logo-vector.png" class="logo-img" alt="Axerve">
             <h4>AEPaymentFacilitator</h4>
-            <p>
-              A Batch application designed to get commission from <strong>Axerve</strong> users. Axerve is a POS and ECOMMERCE application with 4 lakh+ users.
-              <br><br>
-              This application calculates monthly and daily commissions for all users, debits the calculated amount from their accounts, and manages customer/merchant dispute issues.
-            </p>
+            <p>Batch application for <strong>Axerve</strong> (POS/Ecommerce). Calculates commissions and manages disputes.</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="icon-box">
-            <img src="https://github.com/poovarasanm3004-lgtm/poovarasan.m.github.io/raw/main/hypecard.jpg" class="project-img" alt="Hype Card">
+            <img src="hypecard.jpg" class="project-img" alt="Hype Card">
             <h4>Hype Commission Batches</h4>
-            <p>
-              Hype is Italy's leading neobank specializing in mobile money management.
-              <br><br>
-              We perform their customer card's monthly/yearly commission calculations and accounting services. We also handle account closures. The system supports various card products like <strong>HYPE PLUS, PREMIUM, BUSINESS, NEXT, BASE</strong>, each with different commission percentages.
-            </p>
+            <p>Commission calculations for Italy's leading neobank, <strong>Hype</strong>. Manages products like HYPE PLUS, PREMIUM, and NEXT.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -458,65 +449,53 @@
         <h2>Skills</h2>
         <p>Technical Skills</p>
       </div>
-      <div class="row gy-4">
-        
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fab fa-java"></i>
-                <h4>Java</h4>
-            </div>
-        </div>
 
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fas fa-leaf"></i>
-                <h4>Spring Boot</h4>
-            </div>
+      <div class="skill-category">
+        <h4>Programming Languages & Backend</h4>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"><span>Spring Boot</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle SQL</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-database" style="font-size:40px; color:#fff;"></i><span>PL/SQL</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-terminal" style="font-size:40px; color:#fff;"></i><span>Shell Script</span></div></div>
         </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fas fa-database"></i>
-                <h4>Oracle SQL</h4>
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fab fa-angular"></i>
-                <h4>Angular</h4>
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fab fa-react"></i>
-                <h4>React</h4>
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fas fa-robot"></i>
-                <h4>GitHub Copilot</h4>
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fas fa-code"></i>
-                <h4>HTML/CSS</h4>
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3">
-            <div class="skill-box">
-                <i class="fas fa-terminal"></i>
-                <h4>Shell Scripting</h4>
-            </div>
-        </div>
-
       </div>
+
+      <div class="skill-category">
+        <h4>Front-End Development</h4>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular"><span>Angular</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"><span>Bootstrap</span></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>Tools & Utilities</h4>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ"><span>IntelliJ</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" alt="Eclipse"><span>Eclipse</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"><span>VS Code</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman"><span>Postman</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-server" style="font-size:40px; color:#fff;"></i><span>Putty</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-file-upload" style="font-size:40px; color:#fff;"></i><span>FileZilla</span></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>Version Control</h4>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" alt="BitBucket"><span>BitBucket</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"><span>Azure DevOps</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-code-branch" style="font-size:40px; color:#fff;"></i><span>SVN</span></div></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -527,35 +506,30 @@
         <p>Certifications</p>
       </div>
       <div class="row gy-4">
-        
         <div class="col-md-6">
           <div class="cert-card">
             <h4>GitHub Copilot</h4>
-            <p>Learned prompt engineering techniques, AI-assisted coding workflows, and best practices for utilizing conversational prompts and integrating Copilot into development environments.</p>
+            <p>Prompt engineering & AI-assisted coding workflows.</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="cert-card">
             <h4>GitHub Copilot - Agent Mode</h4>
-            <p>Hands-on experience with GitHub Copilot's Agent Mode to generate, refactor, and debug code across multiple languages and frameworks. Demonstrated proficiency in integrating AI workflows into real-world tasks.</p>
+            <p>Agent Mode to generate, refactor, and debug code.</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="cert-card">
             <h4>Angular Advanced Level</h4>
-            <p>Completed advanced training in Angular, covering component architecture, reactive forms, state management, and performance optimization techniques.</p>
+            <p>Component architecture, reactive forms, & state management.</p>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="cert-card">
             <h4>Fullstack Course (Spring Boot + React)</h4>
-            <p>Udemy Course: Learned technical knowledge like Spring Boot annotations, Java, SQL, Database management, and React.</p>
+            <p>Spring Boot annotations, Java, SQL, DB management, & React.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -591,7 +565,7 @@
             <i class="fas fa-share-alt" style="font-size: 30px; color: var(--accent-color); margin-bottom: 15px;"></i>
             <h3>Social Profiles</h3>
             <div class="social-links" style="justify-content: center;">
-                <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUM-OZ0-PMTcyN-3t30YQv14VvBq0Hgmo7UmyeX0GiP3AqdixTmUkLEiBYN8_aem_Y-y23sCVybO5Aw6zKmADoA" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/poovarasan-m-37787b19b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/poovarasanm3004-lgtm" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:Poovarasannpty@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
@@ -631,7 +605,7 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    const chars = 'POOVARASANM3004';
+    const chars = '01POOVARASANJAVA01';
     const charArray = chars.split('');
     const fontSize = 16;
     const columns = canvas.width / fontSize;
@@ -640,16 +614,13 @@
     for (let i = 0; i < columns; i++) { drops[i] = 1; }
 
     function drawMatrix() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#00F0FF'; // CYAN BLUE TEXT
+        ctx.fillStyle = '#00F0FF';
         ctx.font = fontSize + 'px monospace';
-
         for (let i = 0; i < drops.length; i++) {
             const text = charArray[Math.floor(Math.random() * charArray.length)];
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
             }
