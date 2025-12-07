@@ -175,10 +175,29 @@
         overflow: hidden;
         border: 2px solid var(--accent-color);
         box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        margin-bottom: 20px;
     }
-    .about .content h3 { font-weight: 700; font-size: 26px; color: var(--accent-color); }
+    .about .content h3 { font-weight: 700; font-size: 26px; color: var(--accent-color); margin-bottom: 20px; }
+    
+    /* About Cards (Styled like icon-box) */
+    .about-card {
+        padding: 20px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 3px solid var(--accent-color);
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        transition: 0.3s;
+    }
+    .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
+        background: rgba(13, 27, 42, 0.9);
+    }
+    .about-card p { margin: 0; color: #ccc; font-size: 15px; line-height: 1.6; }
+    .about-card i { color: var(--accent-color); margin-right: 10px; font-size: 18px;}
 
-    /* --- CARDS --- */
+    /* --- CARDS (Education, Experience) --- */
     .icon-box {
       padding: 30px;
       position: relative;
@@ -209,10 +228,8 @@
         border-radius: 4px;
     }
     
-    /* --- SKILLS SECTION (NEW DESIGN) --- */
-    .skill-category {
-        margin-bottom: 30px;
-    }
+    /* --- SKILLS SECTION --- */
+    .skill-category { margin-bottom: 30px; }
     .skill-category h4 {
         color: var(--accent-color);
         font-size: 22px;
@@ -243,17 +260,8 @@
         border-color: var(--accent-color);
         box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
     }
-    .skill-item img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
-    }
-    .skill-item span {
-        display: block;
-        font-size: 14px;
-        font-weight: 600;
-        color: #fff;
-    }
+    .skill-item img { width: 50px; height: 50px; margin-bottom: 10px; }
+    .skill-item span { display: block; font-size: 14px; font-weight: 600; color: #fff; }
 
     /* --- PROJECT IMAGES --- */
     .project-img {
@@ -336,21 +344,25 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="about-img">
-              <img src="myphoto.jpg" class="img-fluid" alt="Poovarasan M">
+              <img src="myphoto.jpg" class="img-fluid" alt="Poovarasan M" style="width:100%">
           </div>
         </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content">
+        <div class="col-lg-8 pt-lg-0 content">
           <h3>Hi there, Myself POOVARASAN M</h3>
           <br>
-          <p class="fst-italic">
-            -> I’m a graduate of <strong>Anna University-Trichy</strong> with a Bachelor's degree in "Computer Science and Engineering".
-          </p>
-          <p>
-            -> My academic journey seamlessly integrates these fields, providing me with a strong foundation in both theoretical and practical knowledge.
-          </p>
-          <p>
-            -> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>.
-          </p>
+          
+          <div class="about-card">
+            <p><i class="fas fa-chevron-right"></i> I’m a graduate of <strong>Anna University-Trichy</strong> with a Bachelor's degree in "Computer Science and Engineering".</p>
+          </div>
+
+          <div class="about-card">
+            <p><i class="fas fa-chevron-right"></i> My academic journey seamlessly integrates these fields, providing me with a strong foundation in both theoretical and practical knowledge in areas that align with my personal interests. This combination of skills allows me to innovate at the crossroads of hardware and software, bridging intricate technological gaps.</p>
+          </div>
+
+          <div class="about-card">
+            <p><i class="fas fa-chevron-right"></i> I have strong knowledge in <strong>Back-End Technologies</strong> and also hands-on experience in front-end technologies like <strong>React</strong> and <strong>Angular</strong>. I am always active on the internet, which helps me stay updated about new technologies. So far, using my knowledge, I have completed many projects including both front-end and back-end.</p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -376,6 +388,7 @@
             <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>HSC (12th Grade)</h5>
+            <p>Reddipatti, Namakkal</p>
             <p><strong>Score:</strong> 83%</p>
           </div>
         </div>
@@ -384,7 +397,8 @@
             <img src="bharathi-higher-secondary-school-namakkal-logo.jpg" class="logo-img" alt="Bharathi School">
             <h4>Bharathi Hr Sec School</h4>
             <h5>SSLC (10th Grade)</h5>
-            <p><strong>Score:</strong> 88%</p>
+            <p>Reddipatti, Namakkal</p>
+            <p><strong>Batch:</strong> 2014 - 2015 | <strong>Score:</strong> 88%</p>
           </div>
         </div>
       </div>
@@ -434,7 +448,7 @@
         </div>
         <div class="col-md-6">
           <div class="icon-box">
-            <img src="hypecard.png" class="project-img" alt="Hype Card">
+            <img src="hypecard.jpg" class="project-img" alt="Hype Card">
             <h4>Hype Commission Batches</h4>
             <p>Commission calculations for Italy's leading neobank, <strong>Hype</strong>. Manages products like HYPE PLUS, PREMIUM, and NEXT.</p>
           </div>
@@ -455,7 +469,7 @@
         <div class="row">
           <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div></div>
           <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"><span>Spring Boot</span></div></div>
-          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle SQL</span></div></div>
+          <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle</span></div></div>
           <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div></div>
           <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-database" style="font-size:40px; color:#fff;"></i><span>PL/SQL</span></div></div>
           <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-terminal" style="font-size:40px; color:#fff;"></i><span>Shell Script</span></div></div>
@@ -575,7 +589,7 @@
           <div class="icon-box">
             <i class="fas fa-envelope-open" style="font-size: 30px; color: var(--accent-color); margin-bottom: 15px;"></i>
             <h3>Email Me</h3>
-            <p><a href="mailto:poovarasan.m.3004@gmail.com">poovarasan.m.3004@gmail.com</a></p>
+            <p><a href="mailto:Poovarasannpty@gmail.com">Poovarasannpty@gmail.com</a></p>
           </div>
         </div>
       </div>
@@ -632,7 +646,3 @@
 
 </body>
 </html>
-
-
-
-
